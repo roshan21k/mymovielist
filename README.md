@@ -51,10 +51,10 @@
 ## Screenshots
 
 ![Screenshot 1](/screenshots/screenshot1.png)
-_Caption for screenshot 1._
+_Sample Image_
 
 ![Screenshot 2](/screenshots/screenshot2.png)
-_Caption for screenshot 2._
+_Sample Image_
 
 ## Contributing
 
