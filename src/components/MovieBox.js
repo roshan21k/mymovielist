@@ -17,9 +17,9 @@ export default function MovieBox({
       <h3>Movies</h3>
       {isLoading ? (
         <InfoMessage>Loading...</InfoMessage>
-      ) : isOpen && movies?.length === 0 ? (
+      ) : movies?.length === 0 ? (
         <InfoMessage> No Results Found </InfoMessage>
-      ) : (
+      ) : isOpen ? (
         movies?.map((data) => (
           <MovieCard
             data={data}
@@ -27,6 +27,8 @@ export default function MovieBox({
             handleSetSelectedMovieId={handleSetSelectedMovieId}
           />
         ))
+      ) : (
+        ""
       )}
     </div>
   );

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useKey } from "../useKey";
 import Button from "./Button";
 const API_KEY = process.env.REACT_APP_API_KEY;
 export default function ShowMovieDetails({
@@ -7,20 +8,11 @@ export default function ShowMovieDetails({
   handleRemoveSelectedMovieId,
 }) {
   const [selected, setSelected] = useState(null);
-  useEffect(
-    function () {
-      function callback(e) {
-        if (e.code === "Escape") {
-          handleRemoveSelectedMovieId();
-        }
-      }
-      document.addEventListener("keydown", callback);
-      return function () {
-        document.removeEventListener("keydown", callback);
-      };
-    },
-    [handleRemoveSelectedMovieId]
-  );
+
+  //Custom Hook for closing selected Movie
+  useKey("Escape", handleRemoveSelectedMovieId);
+
+  //Dynamic Movie title
   useEffect(
     function () {
       document.title = selected?.title;
